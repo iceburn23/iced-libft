@@ -6,7 +6,7 @@
 /*   By: hgoncalv <hgoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:46:42 by hgoncalv          #+#    #+#             */
-/*   Updated: 2021/02/21 06:14:13 by hgoncalv         ###   ########.fr       */
+/*   Updated: 2021/02/21 23:43:09 by hgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	my_isspace(char c)
 		return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	size_t		res;
 	int			signal;
@@ -40,7 +40,7 @@ int			ft_atoi(const char *str)
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
-		res = (res * 10) + (*str++ - 48);
+		res = (res * 10) + (*str++ - '0');
 		if (signal == 1 & res > (2147483647))
 			return (-1);
 	}
