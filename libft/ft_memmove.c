@@ -6,7 +6,7 @@
 /*   By: hgoncalv <hgoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 18:06:05 by hugogonca         #+#    #+#             */
-/*   Updated: 2021/02/21 04:59:13 by hgoncalv         ###   ########.fr       */
+/*   Updated: 2021/02/22 02:13:10 by hgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	dest = (char *)dst;
 	source = (char *)src;
+	if (dest == src)
+		return (dst);
 	if (dest > source)
 	{
 		while (n--)
