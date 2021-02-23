@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgoncalv <hgoncalv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 03:30:33 by hugogonca         #+#    #+#             */
-/*   Updated: 2021/02/23 01:15:20 by hgoncalv         ###   ########.fr       */
+/*   Created: 2021/02/23 19:29:16 by hgoncalv          #+#    #+#             */
+/*   Updated: 2021/02/23 19:56:46 by hgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char				*str;
-	unsigned int		len_s1;
-	unsigned int		len_s2;
+	t_list	*new_lst;
+	t_list	*new_elem;
 
-	if (!s1 || !s2)
+	if (!lst || !f)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	str = (char*)malloc((len_s1 + len_s2 + 1) * sizeof(*s1));
-	if (!str)
+	new_elem = ft_lstnew(f(lst->content));
+	if (!new_elem)
+		return (NULL);
+	new_lst = new_elem;
+	lst = lst->next;
+	while (lst)
 	{
-		return (NULL);
+		new_elem = ft_lstnew(f(lst->content));
+		if (!new_elem)
+		{
+			ft_lstclear(&new_lst, del);
+			break ;
+		}
+		lst = lst->next;
+		ft_lstadd_back(&new_lst, new_elem);
 	}
-	ft_strlcpy(str, s1, len_s1 + 1);
-	ft_strlcpy(str + len_s1, s2, len_s2 + 1);
-	str[len_s1 + len_s2] = '\0';
-	return (str);
+	return (new_lst);
 }

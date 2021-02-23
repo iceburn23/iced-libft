@@ -4,6 +4,12 @@
 
 int	main(void)
 {
-	ft_putnbr_fd(1234, 1);
+
+	t_list	*lst;
+
+	char str[]= "abcd";
+	ft_putnbr_fd(-1234, 1);
+	lst = ft_lstnew(str);
+	printf("\n content= %s", lst -> content);
 	return (0);
 }
