@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugogoncalv <hugogoncalv@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/19 15:21:16 by hgoncalv          #+#    #+#             */
-/*   Updated: 2021/02/23 23:52:54 by hugogoncalv      ###   ########.fr       */
+/*   Created: 2021/02/24 01:50:58 by hugogoncalv       #+#    #+#             */
+/*   Updated: 2021/03/02 12:59:15 by hugogoncalv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <unistd.h>
+#include "../libft/libft.h"
+#include "libftprintf.h"
+#include <stdarg.h>
 
-void	ft_bzero(void *s, size_t n)
+
+
+int	main(void)
 {
-	unsigned char	*a;
-
-	a = (unsigned char *)s;
-	while (n-- > 0)
-		*a++ = '\0';
+	int i;
+	ft_printf("%-10o", 230);
+	printf("\n%-10o\n", 230);
+	//ft_printf("\n%x", 123);
+	//ft_printf("\n%.*d", 5, 10);
+	//printf("%d", -123);
+	return(0);
 }

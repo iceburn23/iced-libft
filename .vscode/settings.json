@@ -1,0 +1,13 @@
+{
+    "launch": {
+
+        "configurations": [],
+        "compounds": [],
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.renderWhitespace": "all",
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+    },
+    "git.ignoreLimitWarning": true
+}
